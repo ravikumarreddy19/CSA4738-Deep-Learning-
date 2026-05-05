@@ -1,0 +1,17 @@
+"""
+EXP 18 – Neural Network (Two-Class Data, Identity Activation)
+"""
+
+from sklearn.neural_network import MLPClassifier
+from sklearn.datasets import make_classification
+
+X, y = make_classification(n_samples=100, n_features=2)
+
+model = MLPClassifier(hidden_layer_sizes=(3, 3),
+                      activation='identity',
+                      learning_rate_init=0.03,
+                      max_iter=500)
+
+model.fit(X, y)
+
+print("Accuracy:", model.score(X, y))

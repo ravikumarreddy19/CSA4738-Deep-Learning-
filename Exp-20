@@ -1,0 +1,17 @@
+"""
+EXP 20 – Neural Network (Multi-Class Data, Identity Activation)
+"""
+
+from sklearn.datasets import make_blobs
+from sklearn.neural_network import MLPClassifier
+
+X, y = make_blobs(n_samples=150, centers=3)
+
+model = MLPClassifier(hidden_layer_sizes=(2, 2),
+                      activation='identity',
+                      learning_rate_init=0.01,
+                      max_iter=500)
+
+model.fit(X, y)
+
+print("Accuracy:", model.score(X, y))

@@ -1,0 +1,17 @@
+"""
+EXP 19 – Neural Network (Circular Data, Identity Activation)
+"""
+
+from sklearn.datasets import make_circles
+from sklearn.neural_network import MLPClassifier
+
+X, y = make_circles(n_samples=100, noise=0.1)
+
+model = MLPClassifier(hidden_layer_sizes=(3, 3),
+                      activation='identity',
+                      learning_rate_init=0.03,
+                      max_iter=500)
+
+model.fit(X, y)
+
+print("Accuracy:", model.score(X, y))
